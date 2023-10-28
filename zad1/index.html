@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resizable Circle SVG</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            h1 {
+                text-align: center;
+            }
+            label {
+                display: block;
+                text-align: left;
+            }
+            #circle-svg {
+                display: block;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Resizable Circle SVG</h1>
+        <label for="size-slider" id="SizePrint">Circle Size: 100 </label>
+        <input type="range" id="size-slider" min="10" max="500" value="100">
+        <svg id="circle-svg" width="1000" height="1000">
+            <circle id="circle" cx="500" cy="500" r="100" fill="blue"/>
+        </svg>
+        <script>
+            const sizeSlider = document.getElementById('size-slider');
+            const circle = document.getElementById('circle');
+            const circleSvg = document.getElementById('circle-svg');
+            
+            sizeSlider.addEventListener('input', () => {
+                const newSize = sizeSlider.value;
+                circle.setAttribute('r', newSize);                SizePrint.innerHTML = "Circle Size: " + newSize;
+            });
+        </script>
+    </body>
+</html>
