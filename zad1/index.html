@@ -17,6 +17,11 @@
                 display: block;
                 margin: 0 auto;
             }
+            #text {
+                font-size: 20px;
+                text-anchor: middle;
+                dominant-baseline: central;
+            }
         </style>
     </head>
     <body>
@@ -25,15 +30,18 @@
         <input type="range" id="size-slider" min="10" max="500" value="100">
         <svg id="circle-svg" width="1000" height="1000">
             <circle id="circle" cx="500" cy="500" r="100" fill="blue"/>
+            <text id="text" x="500" y="500">100</text>
         </svg>
         <script>
             const sizeSlider = document.getElementById('size-slider');
             const circle = document.getElementById('circle');
             const circleSvg = document.getElementById('circle-svg');
-            
+            const text = document.getElementById('text');
             sizeSlider.addEventListener('input', () => {
                 const newSize = sizeSlider.value;
-                circle.setAttribute('r', newSize);                SizePrint.innerHTML = "Circle Size: " + newSize;
+                circle.setAttribute('r', newSize / 2 );
+                text.innerHTML = newSize ;
+                SizePrint.innerHTML = "Circle Size: " + newSize;
             });
         </script>
     </body>
